@@ -31,7 +31,7 @@ function SubMenu({ title, links, location }) {
   return (
     <details onMouseEnter={handleMouseEnter} open={isOpen}>
       <summary className={`${summaryClasses} pointer-events-none pr-0 text-xl`}><span>{title}</span></summary>
-      <ul className="pt-5 bg-base-100/80 backdrop-blur-md rounded-b-box rounded-t-none shadow-xl z-50" onMouseLeave={handleSubMenuMouseLeave}>
+      <ul className="pt-5 pl-1 bg-base-100/80 backdrop-blur-md rounded-b-box rounded-t-none shadow-xl z-50" onMouseLeave={handleSubMenuMouseLeave}>
         {links.map(({ to, label }) => (
           <li key={to}><NavLinkItem to={to} isActive={false}>{label}</NavLinkItem></li>
         ))}
