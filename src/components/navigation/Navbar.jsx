@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeController from "./ThemeController";
 
 function NavLinkItem({ to, children, isActive }) {
-  const baseClasses = " font-bold bg-clip-text text-transparent text-shadow-sm text-shadow-white/5 bg-gradient-to-r from-info to-accent text-xl";
+  const baseClasses = " font-bold bg-clip-text text-transparent text-shadow-sm text-shadow-warning-content/6 bg-gradient-to-r from-info to-accent text-xl";
   const activeClasses = isActive ? "rounded-full shadow-sm shadow-accent/50" : "";
   
   return (
@@ -24,7 +24,7 @@ function NavLinkMobileItem({ to, children, isActive }) {
 function SubMenu({ title, links, location }) {
   const [isOpen, setIsOpen] = useState(false);
   const isSubActive = links.some(({ to }) => location.pathname.startsWith(to));
-  const summaryClasses = `rounded-full bg-clip-text text-transparent text-shadow-sm text-shadow-white/5 bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
+  const summaryClasses = `rounded-full bg-clip-text text-transparent text-shadow-sm text-shadow-warning-content/6 bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
   const handleMouseEnter = () => { setIsOpen(true); };
   const handleSubMenuMouseLeave = () => { setIsOpen(false); };
 
@@ -89,7 +89,7 @@ export default function Navbar() {
       <nav className="navbar fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-base-300 bg-base-200/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
           <div className="navbar-start">
-            <Link to="/" className="text-3xl font-bold text-shadow-sm text-shadow-primary/10 bg-gradient-to-r from-accent to-info bg-clip-text text-transparent">ROZUMITY</Link>
+            <Link to="/" className="text-3xl font-bold text-shadow-sm text-shadow-primary/15 bg-gradient-to-r from-accent to-info bg-clip-text text-transparent">ROZUMITY</Link>
           </div>
 
           <div className="navbar-center hidden lg:flex">
