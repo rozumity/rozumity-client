@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeController from "./ThemeController";
 
 function NavLinkItem({ to, children, isActive }) {
-  const baseClasses = "text-shadow-sm text-shadow-primary/15 font-bold bg-clip-text text-transparent bg-gradient-to-r from-info to-accent text-lg";
+  const baseClasses = " font-bold bg-clip-text text-transparent text-shadow-sm text-shadow-white/10 bg-gradient-to-r from-info to-accent text-xl";
   const activeClasses = isActive ? "rounded-full shadow-sm shadow-accent/50" : "";
   
   return (
@@ -24,14 +24,14 @@ function NavLinkMobileItem({ to, children, isActive }) {
 function SubMenu({ title, links, location }) {
   const [isOpen, setIsOpen] = useState(false);
   const isSubActive = links.some(({ to }) => location.pathname.startsWith(to));
-  const summaryClasses = `rounded-full text-shadow-sm text-shadow-primary/15 bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
+  const summaryClasses = `rounded-full text-shadow-md text-shadow-sm text-shadow-white/10 bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
   const handleMouseEnter = () => { setIsOpen(true); };
   const handleSubMenuMouseLeave = () => { setIsOpen(false); };
 
   return (
-    <details onMouseEnter={handleMouseEnter} open={isOpen} className="">
+    <details onMouseEnter={handleMouseEnter} open={isOpen}>
       <summary className={`${summaryClasses} pointer-events-none pr-0 text-xl`}><span>{title}</span></summary>
-      <ul className="pt-5 pl-1 bg-base-100/80 backdrop-blur-sm rounded-b-box rounded-t-none shadow-xl z-10" onMouseLeave={handleSubMenuMouseLeave}>
+      <ul className="pt-5 pl-1 bg-transparent backdrop-blur-lg rounded-b-box rounded-t-none shadow-xl z-10" onMouseLeave={handleSubMenuMouseLeave}>
         {links.map(({ to, label }) => (
           <li key={to}><NavLinkItem to={to} isActive={false}>{label}</NavLinkItem></li>
         ))}
@@ -66,7 +66,7 @@ function ThemeAndLogin({ isMobile }) {
   return (
     <div className={`${isMobile ? "space-y-3 text-right" : "hidden lg:flex items-center space-x-4 mr-0"}`}>
       <div className="mr-5"><ThemeController /></div>
-      <button className={`btn btn-accent rounded-full shadow-xl text-shadow-lg font-bold border-b-0 bg-gradient-to-b from-info to-accent text-base-100 ${isMobile ? "w-full rounded-none mb-0" : ""}`}>УВІЙТИ</button>
+      <button className={`btn btn-accent rounded-full shadow-xl text-shadow-lg font-bold border-y-0 bg-gradient-to-b from-info to-accent text-base-100 ${isMobile ? "w-full rounded-none mb-0" : ""}`}>УВІЙТИ</button>
 
     </div>
   );
@@ -87,14 +87,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar fixed top-0 left-0 right-0 z-50 bg-base-100/80 backdrop-blur-lg border-base-100">
+      <nav className="navbar fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-base-100 bg-neutral/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
           <div className="navbar-start">
-            <Link to="/" className="text-3xl text-shadow-sm text-shadow-accent/10 font-bold bg-gradient-to-r from-accent to-info bg-clip-text text-transparent">ROZUMITY</Link>
+            <Link to="/" className="text-3xl text-shadow-sm text-shadow-primary/12 font-bold bg-gradient-to-r from-accent to-info bg-clip-text text-transparent">ROZUMITY</Link>
           </div>
 
-          <div className="navbar-center hidden lg:flex py-0">
-            <ul className="menu menu-horizontal px-1 space-x-4 py-2">
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal px-1 space-x-4">
               <li><SubMenu title="Опитування" links={surveyLinks} location={location} /></li>
               {menuLinks.map(({ to, label }) => (
                 <li key={to}><NavLinkItem to={to} isActive={location.pathname.startsWith(to)}>{label}</NavLinkItem></li>
