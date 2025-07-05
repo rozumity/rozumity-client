@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeController from "./ThemeController";
 
 function NavLinkItem({ to, children, isActive }) {
-  const baseClasses = " font-bold bg-clip-text text-transparent text-shadow-sm text-shadow-white/4 bg-gradient-to-r from-info to-accent text-xl";
+  const baseClasses = " font-bold bg-clip-text text-transparent text-shadow-sm text-shadow-white/5 bg-gradient-to-r from-info to-accent text-xl";
   const activeClasses = isActive ? "rounded-full shadow-sm shadow-accent/50" : "";
   
   return (
@@ -24,7 +24,7 @@ function NavLinkMobileItem({ to, children, isActive }) {
 function SubMenu({ title, links, location }) {
   const [isOpen, setIsOpen] = useState(false);
   const isSubActive = links.some(({ to }) => location.pathname.startsWith(to));
-  const summaryClasses = `rounded-full bg-clip-text text-transparent text-shadow-sm text-shadow-white/4 bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
+  const summaryClasses = `rounded-full bg-clip-text text-transparent text-shadow-sm text-shadow-white/5 bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
   const handleMouseEnter = () => { setIsOpen(true); };
   const handleSubMenuMouseLeave = () => { setIsOpen(false); };
 
