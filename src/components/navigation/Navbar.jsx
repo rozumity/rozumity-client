@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeController from "./ThemeController";
 
 function NavLinkItem({ to, children, isActive }) {
-  const baseClasses = " font-bold bg-clip-text text-transparent text-shadow-sm text-shadow-white/10 bg-gradient-to-r from-info to-accent text-xl";
+  const baseClasses = " font-bold bg-clip-text text-transparent text-shadow-sm text-shadow-primary/10 bg-gradient-to-r from-info to-accent text-lg";
   const activeClasses = isActive ? "rounded-full shadow-sm shadow-accent/50" : "";
   
   return (
@@ -12,7 +12,7 @@ function NavLinkItem({ to, children, isActive }) {
 }
 
 function NavLinkMobileItem({ to, children, isActive }) {
-  const baseClasses = "font-bold bg-clip-text text-transparent bg-gradient-to-r from-info to-accent text-lg";
+  const baseClasses = "font-bold bg-clip-text text-transparent bg-gradient-to-r from-info to-accent text-xl";
   const activeClasses = isActive ? "rounded-full bg-base-300 shadow-sm shadow-accent/25" : "";
 
   return (
@@ -24,13 +24,13 @@ function NavLinkMobileItem({ to, children, isActive }) {
 function SubMenu({ title, links, location }) {
   const [isOpen, setIsOpen] = useState(false);
   const isSubActive = links.some(({ to }) => location.pathname.startsWith(to));
-  const summaryClasses = `rounded-full text-shadow-md text-shadow-sm text-shadow-white/10 bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
+  const summaryClasses = `rounded-full text-shadow-md text-shadow-sm text-shadow-primary/10 bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
   const handleMouseEnter = () => { setIsOpen(true); };
   const handleSubMenuMouseLeave = () => { setIsOpen(false); };
 
   return (
     <details onMouseEnter={handleMouseEnter} open={isOpen}>
-      <summary className={`${summaryClasses} pointer-events-none pr-0 text-xl`}><span>{title}</span></summary>
+      <summary className={`${summaryClasses} pointer-events-none pr-0 text-lg`}><span>{title}</span></summary>
       <ul className="pt-5 pl-1 bg-transparent backdrop-blur-lg rounded-b-box rounded-t-none shadow-xl z-10" onMouseLeave={handleSubMenuMouseLeave}>
         {links.map(({ to, label }) => (
           <li key={to}><NavLinkItem to={to} isActive={false}>{label}</NavLinkItem></li>
@@ -42,16 +42,15 @@ function SubMenu({ title, links, location }) {
 
 
 function SubMenuMobile({ title, links, location }) {
-  const isSubActive = links.some(({ to }) => location.pathname.startsWith(to));
-  const summaryClasses = `text-lg rounded-lg hover:bg-base-200 bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer ${isSubActive ? "text-accent" : ""}`;
+  const summaryClasses = 'text-lg rounded-lg bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer text-xl';
 
   return (
     <details className="group">
       <summary className="text-info"><a className={summaryClasses}>{title}</a></summary>
-      <ul className="mt-2 mb-4 space-y-1 text-right">
+      <ul className="mt-2 mb-4 space-y-2 text-right">
         {links.map(({ to, label }) => (
           <li key={to}>
-            <Link to={to} className={`font-bold text-info ${location.pathname.startsWith(to) ? "text-shadow-white/15 text-shadow-sm" : ""}`}>
+            <Link to={to} className={`font-bold text-info ${location.pathname.startsWith(to) ? "text-shadow-accent/50 text-shadow-md" : ""}`}>
               {label}
             </Link>
           </li>
@@ -87,10 +86,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-base-100 bg-neutral/10">
+      <nav className="navbar fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-base-300 bg-base-200/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
           <div className="navbar-start">
-            <Link to="/" className="text-3xl text-shadow-sm text-shadow-primary/12 font-bold bg-gradient-to-r from-accent to-info bg-clip-text text-transparent">ROZUMITY</Link>
+            <Link to="/" className="text-3xl font-bold bg-gradient-to-r from-accent to-info bg-clip-text text-transparent">ROZUMITY</Link>
           </div>
 
           <div className="navbar-center hidden lg:flex">
@@ -112,7 +111,7 @@ export default function Navbar() {
       </nav>
 
       {isMenuOpen && (
-        <div className="md:hidden pt-1 fixed top-16 left-0 right-0 z-40 bg-base-100/75 backdrop-blur-sm border-base-200 shadow-xl">
+        <div className="md:hidden pt-1 fixed top-16 left-0 right-0 z-40 bg-base-100/75 backdrop-blur-lg border-base-200 shadow-xl">
           <ul className="px-6 py-6 space-y-5 text-right max-w-7xl mx-auto">
             <li><SubMenuMobile title="Опитування" links={surveyLinks} location={location} /></li>
             {menuLinks.map(({ to, label }) => (
