@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
 const ThemeController = () => {
-  const THEMES = { light: "retro", dark: "coffee" };
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || THEMES.light);
+  const THEMES = { light: "retro", dark: "dracula" };
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || THEMES.light
+  );
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === THEMES.light ? THEMES.dark : THEMES.light));
@@ -14,35 +16,12 @@ const ThemeController = () => {
   }, [theme]);
 
   return (
-    <label className="bg-transparent toggle text-info">
-      <input
-        type="checkbox"
-        className="bg-transparent theme-controller"
-        onChange={toggleTheme}
-        checked={theme === THEMES.dark} // ✅ добавлено
-      />
-
+    <label className="toggle text-accent border-0">
+      <input type="checkbox" className="text-accent theme-controller rounded-full" onChange={toggleTheme} checked={theme === THEMES.dark}/>
       {/* Sun Icon */}
-      <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2"></path>
-          <path d="M12 20v2"></path>
-          <path d="m4.93 4.93 1.41 1.41"></path>
-          <path d="m17.66 17.66 1.41 1.41"></path>
-          <path d="M2 12h2"></path>
-          <path d="M20 12h2"></path>
-          <path d="m6.34 17.66-1.41 1.41"></path>
-          <path d="m19.07 4.93-1.41 1.41"></path>
-        </g>
-      </svg>
-
+      <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
       {/* Moon Icon */}
-      <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor">
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </g>
-      </svg>
+      <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
     </label>
   );
 };
