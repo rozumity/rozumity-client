@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeController from "./ThemeController";
 
 function NavLinkItem({ to, children, isActive }) {
-  const baseClasses = "text-shadow-lg text-shadow-primary/10 font-bold bg-clip-text text-transparent bg-gradient-to-r from-info to-accent text-xl";
+  const baseClasses = "text-shadow-lg text-shadow-primary/10 font-bold bg-clip-text text-transparent bg-gradient-to-r from-info to-accent text-lg";
   const activeClasses = isActive ? "rounded-full shadow-sm shadow-accent/50" : "";
   
   return (
@@ -29,9 +29,9 @@ function SubMenu({ title, links, location }) {
   const handleSubMenuMouseLeave = () => { setIsOpen(false); };
 
   return (
-    <details onMouseEnter={handleMouseEnter} open={isOpen}>
+    <details onMouseEnter={handleMouseEnter} open={isOpen} className="">
       <summary className={`${summaryClasses} pointer-events-none pr-0 text-xl`}><span>{title}</span></summary>
-      <ul className="pt-5 pl-1 bg-base-100/80 backdrop-blur-md rounded-b-box rounded-t-none shadow-xl z-50" onMouseLeave={handleSubMenuMouseLeave}>
+      <ul className="pt-5 pl-1 bg-base-100/80 backdrop-blur-sm rounded-b-box rounded-t-none shadow-xl z-10" onMouseLeave={handleSubMenuMouseLeave}>
         {links.map(({ to, label }) => (
           <li key={to}><NavLinkItem to={to} isActive={false}>{label}</NavLinkItem></li>
         ))}
@@ -66,7 +66,8 @@ function ThemeAndLogin({ isMobile }) {
   return (
     <div className={`${isMobile ? "space-y-3 text-right" : "hidden lg:flex items-center space-x-4"}`}>
       <div className="mr-5"><ThemeController /></div>
-      <button className={`text-shadow-lg text-shadow-accent-content/15 btn font-bold rounded-full shadow-lg ${isMobile ? "btn-lg btn-accent border-b-0 bg-gradient-to-b from-info to-accent shadow-lg text-shadow-lg text-base-100 w-full rounded-none" : "btn-accent bg-gradient-to-b from-info to-accent text-base-100"}`}>УВІЙТИ</button>
+      <button className={`btn btn-accent rounded-full shadow-lg text-shadow-lg text-shadow-accent-content/15 font-bold border-b-0 bg-gradient-to-b from-info to-accent text-base-100 ${isMobile ? "w-full rounded-none mb-0" : ""}`}>УВІЙТИ</button>
+      <button className={''}></button>
     </div>
   );
 }
@@ -86,14 +87,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar fixed top-0 left-0 right-0 z-50 bg-base-100/80 backdrop-blur-sm shadow-sm pb-3">
+      <nav className="navbar fixed top-0 left-0 right-0 z-50 bg-base-100/80 backdrop-blur-lg border-base-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-          <div className="navbar-start">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-l from-accent to-info bg-clip-text text-transparent pt-1 drop-shadow-xl">ROZUMITY</Link>
+          <div className="navbar-start py-0">
+            <Link to="/" className="text-3xl font-bold bg-gradient-to-l from-accent to-info bg-clip-text text-transparent drop-shadow-xl">ROZUMITY</Link>
           </div>
 
-          <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 space-x-4 pt-0 pb-0">
+          <div className="navbar-center hidden lg:flex py-0">
+            <ul className="menu menu-horizontal px-1 space-x-4 py-2">
               <li><SubMenu title="Опитування" links={surveyLinks} location={location} /></li>
               {menuLinks.map(({ to, label }) => (
                 <li key={to}><NavLinkItem to={to} isActive={location.pathname.startsWith(to)}>{label}</NavLinkItem></li>
@@ -101,9 +102,9 @@ export default function Navbar() {
             </ul>
           </div>
 
-          <div className="navbar-end flex items-center space-x-4 pt-2">
+          <div className="navbar-end flex items-center space-x-4 py-0">
             <ThemeAndLogin />
-            <button className="btn btn-sm px-1 bg-transparent border-0 btn-ghost lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button className="btn px-1 bg-transparent border-0 btn-ghost lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <svg className="h-6 w-6 text-info" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
           </div>
@@ -111,8 +112,8 @@ export default function Navbar() {
       </nav>
 
       {isMenuOpen && (
-        <div className="md:hidden pt-1 fixed top-16 left-0 right-0 z-40 bg-base-100/75 backdrop-blur-md border-base-200 shadow-xl">
-          <ul className="px-6 py-8 space-y-5 text-right max-w-7xl mx-auto">
+        <div className="md:hidden pt-1 fixed top-16 left-0 right-0 z-40 bg-base-100/75 backdrop-blur-sm border-base-200 shadow-xl">
+          <ul className="px-6 py-6 space-y-5 text-right max-w-7xl mx-auto">
             <li><SubMenuMobile title="Опитування" links={surveyLinks} location={location} /></li>
             {menuLinks.map(({ to, label }) => (
               <li key={to}><NavLinkMobileItem to={to} isActive={location.pathname.startsWith(to)}>{label}</NavLinkMobileItem></li>
