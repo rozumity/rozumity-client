@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeController from "./ThemeController";
 
 function NavLinkItem({ to, children, isActive }) {
-  const baseClasses = "text-shadow-lg text-shadow-primary/10 font-bold bg-clip-text text-transparent bg-gradient-to-r from-info to-accent text-lg";
+  const baseClasses = "text-shadow-sm text-shadow-primary/15 font-bold bg-clip-text text-transparent bg-gradient-to-r from-info to-accent text-lg";
   const activeClasses = isActive ? "rounded-full shadow-sm shadow-accent/50" : "";
   
   return (
@@ -24,7 +24,7 @@ function NavLinkMobileItem({ to, children, isActive }) {
 function SubMenu({ title, links, location }) {
   const [isOpen, setIsOpen] = useState(false);
   const isSubActive = links.some(({ to }) => location.pathname.startsWith(to));
-  const summaryClasses = `rounded-full text-shadow-sm text-shadow-primary/10 bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
+  const summaryClasses = `rounded-full text-shadow-sm text-shadow-primary/15 bg-clip-text text-transparent bg-gradient-to-r from-info to-accent font-bold cursor-pointer list-none ${isSubActive ? "text-accent" : ""} ${isSubActive ? "shadow-sm shadow-accent/50" : ""}`;
   const handleMouseEnter = () => { setIsOpen(true); };
   const handleSubMenuMouseLeave = () => { setIsOpen(false); };
 
@@ -64,10 +64,10 @@ function SubMenuMobile({ title, links, location }) {
 
 function ThemeAndLogin({ isMobile }) {
   return (
-    <div className={`${isMobile ? "space-y-3 text-right" : "hidden lg:flex items-center space-x-4"}`}>
+    <div className={`${isMobile ? "space-y-3 text-right" : "hidden lg:flex items-center space-x-4 mr-0"}`}>
       <div className="mr-5"><ThemeController /></div>
-      <button className={`btn btn-accent rounded-full shadow-lg text-shadow-lg text-shadow-accent-content/15 font-bold border-b-0 bg-gradient-to-b from-info to-accent text-base-100 ${isMobile ? "w-full rounded-none mb-0" : ""}`}>УВІЙТИ</button>
-      <button className={''}></button>
+      <button className={`btn btn-accent rounded-full shadow-xl text-shadow-lg font-bold border-b-0 bg-gradient-to-b from-info to-accent text-base-100 ${isMobile ? "w-full rounded-none mb-0" : ""}`}>УВІЙТИ</button>
+
     </div>
   );
 }
@@ -89,8 +89,8 @@ export default function Navbar() {
     <>
       <nav className="navbar fixed top-0 left-0 right-0 z-50 bg-base-100/80 backdrop-blur-lg border-base-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
-          <div className="navbar-start py-0">
-            <Link to="/" className="text-3xl font-bold bg-gradient-to-l from-accent to-info bg-clip-text text-transparent drop-shadow-xl">ROZUMITY</Link>
+          <div className="navbar-start">
+            <Link to="/" className="text-3xl text-shadow-sm text-shadow-accent/10 font-bold bg-gradient-to-r from-accent to-info bg-clip-text text-transparent">ROZUMITY</Link>
           </div>
 
           <div className="navbar-center hidden lg:flex py-0">
@@ -102,7 +102,7 @@ export default function Navbar() {
             </ul>
           </div>
 
-          <div className="navbar-end flex items-center space-x-4 py-0">
+          <div className="navbar-end flex items-center space-x-4">
             <ThemeAndLogin />
             <button className="btn px-1 bg-transparent border-0 btn-ghost lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <svg className="h-6 w-6 text-info" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
