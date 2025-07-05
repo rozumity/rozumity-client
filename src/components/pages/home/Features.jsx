@@ -26,10 +26,10 @@ const Features = () => {
     },
   ];
   return (
-      <div className="py-24 bg-gradient-to-r from-gray-50 to-blue-50">
+      <div className="py-24 bg-gradient-to-r from-base-100 to-base-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-warning to-accent bg-clip-text text-transparent">
               Можливості платформи
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">

@@ -7,7 +7,7 @@ const About = () => {
               </h2>
 
               <div className="space-y-8">
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-2xl border border-green-200">
+                <div className="bg-gradient-to-r from-secondary to-success p-8 rounded-2xl border border-green-200">
                   <h3 className="text-2xl font-bold text-green-800 mb-4 flex items-center">
                     <span className="mr-3">✅</span>
                     Переваги платформи

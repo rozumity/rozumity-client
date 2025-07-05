@@ -48,10 +48,10 @@ const HeroCarousel = () => {
         >
           <div className={`min-h-screen bg-gradient-to-br ${slide.gradient} flex items-center justify-center relative`}>
             <div key={slide.title} className="relative z-10 text-center px-4 max-w-6xl mx-auto animate-fade-in">
-              <h1 className="text-6xl md:text-8xl font-black mb-8 drop-shadow-2xl text-orange-100/85">
+              <h1 className="text-6xl md:text-8xl font-black mb-8 drop-shadow-2xl text-orange-100/95">
                 {slide.title}
               </h1>
-              <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto drop-shadow-lg leading-relaxed text-neutral-content opacity-55">
+              <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto drop-shadow-md leading-relaxed text-neutral-content/60">
                 {slide.subtitle}
               </p>
               <Link to={slide.link} className="btn btn-lg btn-info rounded-lg border-t-0 font-bold bg-gradient-to-b from-info to-accent shadow-lg text-shadow-lg text-base-100">
