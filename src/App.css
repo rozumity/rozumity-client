@@ -3,6 +3,38 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Custom Google fonts */
+.font-primary-1 {
+  font-family: 'Shantell Sans', italic;
+  font-style: italic;
+}
+
+.font-secondary-1 {
+  font-family: "Nunito", normal;
+  font-style: normal;
+}
+
+.font-primary-2 {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-style: normal;
+}
+
+.font-secondary-2 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+.font-script {
+  font-family: 'Caveat', sans-serif;
+  font-style: normal;
+}
+
 /* Custom leather-themed animations */
 @keyframes leatherGlow {
   0%, 100% {
