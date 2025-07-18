@@ -10,7 +10,7 @@ function CardPrimaryDefault({feature, index}) {
             <h3 className="text-lg uppercase text-center font-bold font-secondary-1 mb-3 text-accent text-shadow-md text-shadow-primary/15 group-hover:text-info transition-colors">
                 {feature.title}
             </h3>
-            <p className="font-secondary-2 text-center leading-relaxed text-base-content text-shadow-sm text-shadow-info/5">
+            <p className="font-secondary-2 text-center leading-relaxed text-base-content/85 text-shadow-sm">
                 {feature.description}
             </p>
             </div>
