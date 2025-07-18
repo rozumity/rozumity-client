@@ -1,11 +1,8 @@
+
 const About = () => {
 
   return (
     <div className="bg-gradient-to-br">
-              <h2 className="font-primary-1 text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Навіщо потрібно ROZUMITY?
-              </h2>
-
               <div className="space-y-8">
                 <div className="bg-gradient-to-r from-secondary to-success p-8 rounded-2xl border border-green-200">
                   <h3 className="text-2xl font-bold text-green-800 mb-4 flex items-center">
@@ -29,10 +26,6 @@ const About = () => {
                       <span className="mr-3 mt-1">🇺🇦</span>
                       Зручний інтерфейс українською мовою
                     </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 mt-1">📈</span>
-                      Відстеження прогресу в часі
-                    </li>
                   </ul>
                 </div>
 
@@ -49,6 +42,10 @@ const About = () => {
                     <li className="flex items-start">
                       <span className="mr-3 mt-1">💡</span>
                       Результати носять рекомендаційний характер
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 mt-1">💯</span>
+                      Потребує чесних відповідей для точності
                     </li>
                     <li className="flex items-start">
                       <span className="mr-3 mt-1">💯</span>
