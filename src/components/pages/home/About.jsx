@@ -1,8 +1,8 @@
 const About = () => {
 
   return (
-    <div>
-              <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+    <div className="bg-gradient-to-br">
+              <h2 className="font-primary-1 text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                 Навіщо потрібно ROZUMITY?
               </h2>
 

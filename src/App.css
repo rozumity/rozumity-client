@@ -11,7 +11,7 @@ body {
 
 /* Custom Google fonts */
 .font-primary-1 {
-  font-family: 'Shantell Sans', italic;
+  font-family: 'Shantell Sans', sans-serif;
   font-style: italic;
 }
 
@@ -22,7 +22,7 @@ body {
 
 .font-primary-2 {
   font-family: 'Montserrat Alternates', sans-serif;
-  font-style: normal;
+  font-style: italic;
 }
 
 .font-secondary-2 {

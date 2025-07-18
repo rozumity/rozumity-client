@@ -29,7 +29,7 @@ const Features = () => {
     },
   ];
   return (
-      <div className="py-20 bg-gradient-to-b from-base-100 to-base-200">
+      <div className="py-24 bg-gradient-to-b from-base-100 to-base-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <TitlePrimaryDefault title="Можливості платформи" desc="Комплексні інструменти для самопізнання та психологічного розвитку" />
           <CaldholderDefault features={ features }/>
