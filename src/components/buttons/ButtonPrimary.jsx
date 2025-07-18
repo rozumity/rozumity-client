@@ -1,4 +1,4 @@
-function ButtonPrimary({ size = "", rounded = "full", isScript = true, isFullWidth = false, textSize="xl", className="", text = "" }) {
+function ButtonPrimary({ size = "sm", rounded = "full", isScript = true, isFullWidth = false, textSize="xl", className="", text = "" }) {
   const fontClasses = isScript ? "font-script" : "font-primary-2";
   const sizeClasses = `btn-${size}`;
   const roundedClasses = `rounded-${rounded}`;

@@ -89,7 +89,7 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 shadow-xs backdrop-blur-lg bg-gradient-to-b from-base-100/20 via-base-200/15 to-base-300/10 py-1">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 w-full flex justify-between items-center px-2">
           <div className="navbar-start">
-            <Link to="/" className="text-xl font-extrabold font-secondary-2 text-shadow-2xs text-shadow-base-100/12 bg-gradient-to-r from-accent to-info bg-clip-text text-transparent uppercase">Розуміти</Link>
+            <Link to="/" className="text-xl font-black font-secondary-2 text-shadow-2xs text-shadow-base-100/12 bg-gradient-to-r from-accent to-info bg-clip-text text-transparent uppercase">Розуміти</Link>
           </div>
 
           <div className="navbar-center hidden lg:flex">
