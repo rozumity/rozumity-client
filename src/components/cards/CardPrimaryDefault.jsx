@@ -4,13 +4,13 @@ function CardPrimaryDefault({feature, index}) {
         <div key={index} className={ cardStyle }>
             <div className="absolute inset-0 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="relative z-10">
-            <div className="text-6xl mb-5 text-center group-hover:scale-110 transition-transform duration-300 text-shadow-lg text-shadow-accent/12">
+            <div className="text-6xl mb-5 text-center group-hover:scale-110 transition-transform duration-300 text-shadow-lg text-shadow-accent/15">
                 {feature.icon}
             </div>
-            <h3 className="text-lg uppercase text-center font-bold font-secondary-1 mb-3 text-accent text-shadow-sm text-shadow-warning-content/24 group-hover:text-info transition-colors">
+            <h3 className="text-lg uppercase text-center font-bold font-secondary-1 mb-3 text-accent text-shadow-md text-shadow-primary/25 group-hover:text-info transition-colors">
                 {feature.title}
             </h3>
-            <p className="font-secondary-2 text-center leading-relaxed text-base-content text-shadow-sm text-shadow-info-content/12">
+            <p className="font-secondary-2 text-center leading-relaxed text-base-content text-shadow-md text-shadow-info/8">
                 {feature.description}
             </p>
             </div>

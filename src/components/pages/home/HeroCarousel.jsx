@@ -53,7 +53,7 @@ const HeroCarousel = () => {
               <h1 className="font-primary-1 text-6xl md:text-8xl font-black mb-8 text-shadow-lg text-orange-100/95">
                 {slide.title}
               </h1>
-              <p className="font-primary-2 text-xl md:text-2xl mb-6 max-w-3xl mx-auto drop-shadow-md leading-relaxed text-neutral-content/60 text-shadow-sm">
+              <p className="font-primary-2 text-xl md:text-2xl mb-6 max-w-3xl mx-auto drop-shadow-md leading-relaxed text-neutral-content/60 text-shadow-sm italic">
                 {slide.subtitle}
               </p>
               <Link to={slide.link}>

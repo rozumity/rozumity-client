@@ -12,27 +12,22 @@ body {
 /* Custom Google fonts */
 .font-primary-1 {
   font-family: 'Shantell Sans', sans-serif;
-  font-style: italic;
 }
 
 .font-secondary-1 {
-  font-family: "Nunito", normal;
-  font-style: normal;
+  font-family: "Nunito", sans-serif;
 }
 
 .font-primary-2 {
   font-family: 'Montserrat Alternates', sans-serif;
-  font-style: italic;
 }
 
 .font-secondary-2 {
   font-family: 'Montserrat', sans-serif;
-  font-style: normal;
 }
 
 .font-script {
   font-family: 'Caveat', sans-serif;
-  font-style: normal;
 }
 
 /* Custom leather-themed animations */
